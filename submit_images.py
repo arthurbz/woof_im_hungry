@@ -7,23 +7,13 @@ model = keras.models.load_model('woof-im-hungry-model')
 
 base_path = 'dataset/submission'
 
-image_generator = ImageDataGenerator(
-        rescale = 1/255,
-        rotation_range = 10,
-        width_shift_range = 0.1,
-        height_shift_range = 0.1,
-        zoom_range = 0.1,
-        horizontal_flip = True,
-        brightness_range = [0.2, 1.2],
-        validation_split = 0.2,)
-
-image_generator_submission = ImageDataGenerator(rescale=1/255)
+image_generator_submission = ImageDataGenerator(rescale = 1/255)
 
 submission = image_generator_submission.flow_from_directory(
-                                                 directory=base_path,
-                                                 shuffle=False,
-                                                 target_size=(224, 224),
-                                                 class_mode=None)
+                                                 directory = base_path,
+                                                 shuffle = False,
+                                                 target_size = (224, 224),
+                                                 class_mode = None)
 images = []
 #Get the images in the order that they were added to the submissions list
 for dir in os.listdir(base_path)[::-1]:
