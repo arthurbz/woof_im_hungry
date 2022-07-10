@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Media used as dataset
+*.jpg
+*.mp4
+
+# Final model
+woof-im-hungry-model
